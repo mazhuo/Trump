@@ -1,0 +1,2 @@
+{{ object.news_id }}
+{{ object.news_emotion }}

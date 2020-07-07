@@ -1,0 +1,37 @@
+<html lang="zh">
+{% load static %}
+<head>
+    <title>新闻</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <link rel="stylesheet" href="{% static "/css/layui.css" %}"  media="all">
+</head>
+<body>
+<ul class="layui-nav" lay-filter="">
+  <li class="layui-nav-item "><a href="/news">首页</a></li>
+  <li class="layui-nav-item "><a href="/search">全文搜索</a></li>
+  <li class="layui-nav-item"><a href="/news/data">数据分析</a></li>
+</ul>
+<body bgcolor= #e2e2e2 />
+
+<div class="layui-container">
+    <div style="padding: 20px">
+        <div class="layui-card">
+            <div class="layui-card-header" style="text-align: center">{{ news_list.news_title|safe }}</div>
+                        <div class="layui-card-body" style="text-align: center">
+                        {{ news_list.news_date }}    评价：{{ news_list.news_content }}
+                            <br>
+                        {{ news_list.news_emotion }}
+                            <br>
+                            <img src="{% static "/images/data1.png"%}" width="800" height="400" title="评论" />
+                        </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

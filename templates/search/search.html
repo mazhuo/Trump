@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+<title>全文搜索</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <link rel="stylesheet" href="{% static "/css/layui.css" %}"  media="all">
+    <style>
+    span.highlighted { color: red; }
+</style>
+</head>
+<body bgcolor="#e2e2e2">
+<ul class="layui-nav" lay-filter="">
+  <li class="layui-nav-item "><a href="/news">首页</a></li>
+  <li class="layui-nav-item layui-this"><a href="/search">全文搜索</a></li>
+  <li class="layui-nav-item"><a href="/news/data">数据分析</a></li>
+</ul>
+
+<div class="layui-container">
+    <form method='get' action="/search/" target="_blank">
+    <input type="text" name="q">
+    <input type="submit" value="查询">
+    </form>
+
+
+
+{% if query %}
+<h3>搜索结果如下：</h3>
+<div style="padding: 20px">
+{% for result in page.object_list %}
+<div class="layui-card">
+    <div class="layui-card-header"><a href="/news/detail/{{ result.object.news_id }}/" target="_blank">{{ result.object.news_title }}</a></div>
+    <div class="layui-card-body">{{ result.object.news_emotion }}</div>
+</div>
+<!--<a href="/news/detail/{{ result.object.news_id }}/">{{ result.object.news_emotion }}</a><br/>-->
+{% empty %}
+<p>啥也没找到</p>
+{% endfor %}
+</div>
+{% if page.has_previous or page.has_next %}
+<div>
+{% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; 上一页{% if page.has_previous %}</a>{% endif %}
+|
+{% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}下一页 &raquo;{% if page.has_next %}</a>{% endif %}
+</div>
+{% endif %}
+{% endif %}
+</body>
+</html>

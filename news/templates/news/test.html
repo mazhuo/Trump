@@ -1,0 +1,46 @@
+<html lang="zh">
+{% load static %}
+<head>
+    <title>数据分析</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <link rel="stylesheet" href="{% static "/css/layui.css" %}"  media="all">
+</head>
+<body bgcolor="#e2e2e2" >
+<ul class="layui-nav">
+  <li class="layui-nav-item "><a href="/news">首页</a></li>
+  <li class="layui-nav-item "><a href="/search">全文搜索</a></li>
+  <li class="layui-nav-item layui-this"><a href="/news/data">数据分析</a></li>
+</ul>
+
+
+
+<div class="layui-container">
+    <div style="padding: 20px">
+        <div class="layui-card">
+
+                        <div class="layui-card-body" style="text-align: center">
+
+                            <br>
+                            <img src="{% static "/images/散点图.png"%}"  />
+                                                        <br>
+                            <img src="{% static "/images/波峰图.png"%}"  />
+                                                        <br>
+                            <img src="{% static "/images/直方图.png"%}"  />
+                                                        <br>
+                            <img src="{% static "/images/词云图.png"%}"  />
+                                                        <br>
+                            <img src="{% static "/images/饼状图.png"%}"  />
+                                                        <br>
+
+                        </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
